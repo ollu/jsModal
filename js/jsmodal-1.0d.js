@@ -259,7 +259,14 @@ var Modal = (function () {
             }
 
             if (!parameters.horizontalOnly) {
-                modalContainer.style.top = amountScrolledY + (browserHeight / 2) - (modalHeight / 2) + 'px';
+              var positionTop = amountScrolledY + (browserHeight / 2) - (modalHeight / 2);
+
+             if (positionTop < 0) {
+                positionTop = 0;
+              }
+
+              modalContainer.style.top = positionTop + 'px';
+
             }
 
             modalContainer.style.left = amountScrolledX + (browserWidth / 2) - (modalWidth / 2) + 'px';
